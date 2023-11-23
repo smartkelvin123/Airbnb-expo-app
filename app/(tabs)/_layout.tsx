@@ -26,6 +26,16 @@ const _layout = () => {
       />
 
       <Tabs.Screen
+        name="wishList"
+        options={{
+          tabBarLabel: "wishList",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="heart-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
         name="trips"
         options={{
           tabBarLabel: "Trips",
@@ -51,16 +61,6 @@ const _layout = () => {
           tabBarLabel: "inbox",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="mail-outline" size={size} color={color} />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="wishList"
-        options={{
-          tabBarLabel: "wishList",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="heart-outline" size={size} color={color} />
           ),
         }}
       />
