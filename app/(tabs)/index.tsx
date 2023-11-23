@@ -11,6 +11,9 @@ const Page = () => {
       <Link href={"/(model)/booking"}>
         <Text>Booking</Text>
       </Link>
+      <Link href={"/listing/1337"}>
+        <Text>Listing</Text>
+      </Link>
     </View>
   );
 };
