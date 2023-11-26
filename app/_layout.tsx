@@ -6,6 +6,7 @@ import * as SecureStore from "expo-secure-store";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
 import { TouchableOpacity } from "react-native";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 // Cache the Clerk JWT
@@ -32,7 +33,7 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
-    ...Ionicons.font,
+    ...FontAwesome.font,
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
@@ -74,7 +75,7 @@ function RootLayoutNav() {
   return (
     <Stack>
       <Stack.Screen
-        name="(modals)/login"
+        name="(model)/login"
         options={{
           presentation: "modal",
           title: "Log in or sign up",
@@ -91,7 +92,7 @@ function RootLayoutNav() {
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="listing/[id]" options={{ headerTitle: "" }} />
       <Stack.Screen
-        name="(modals)/booking"
+        name="(model)/booking"
         options={{
           presentation: "transparentModal",
           animation: "fade",
