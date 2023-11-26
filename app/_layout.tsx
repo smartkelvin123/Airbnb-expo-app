@@ -1,5 +1,5 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack, router } from "expo-router";
@@ -45,7 +45,8 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const router = useRoute();
+  // const router = useRoute();
+  const navigate = useNavigation();
 
   const colorScheme = useColorScheme();
 
@@ -61,7 +62,12 @@ function RootLayoutNav() {
           },
           presentation: "modal",
           headerLeft: () => (
-            <TouchableOpacity onPress={() => router.back()}>
+            <TouchableOpacity
+              onPress={() =>
+                //  router.Back()
+                navigate.goBack()
+              }
+            >
               <FontAwesome name="close" size={24} color="black" />
             </TouchableOpacity>
           ),
