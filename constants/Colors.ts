@@ -1,10 +1,5 @@
-
 export default {
-  primary: '#fc5c65',
-  secondary: '#4ecdc4',
-  black: '#000',
-  white: '#fff',
-  gray: '#6e6969',
-  light: '#f8f4f4',
-  dark: '#0c0c0c',
-}
+  primary: '#FF385C',
+  grey: '#5E5D5E',
+  dark: '#1A1A1A',
+};
