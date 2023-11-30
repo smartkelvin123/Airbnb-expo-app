@@ -1,5 +1,6 @@
 import { View, Text, Button } from "react-native";
 import { useAuth } from "@clerk/clerk-expo";
+
 import { Link } from "expo-router";
 
 const Page = () => {

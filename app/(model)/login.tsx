@@ -8,7 +8,6 @@ import {
 
 import { defaultStyles } from "../../constants/styles";
 import Colors from "@/constants/Colors";
-// import { useOAuth } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
 
 import useWarmUpBrowser from "../hook/useWarmUpBrowser";
