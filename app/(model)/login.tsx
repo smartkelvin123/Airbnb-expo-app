@@ -1,5 +1,5 @@
 import Colors from "@/constants/Colors";
-// import { useOAuth } from '@clerk/clerk-expo';
+import { useOAuth } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import {
@@ -10,42 +10,42 @@ import {
   TouchableOpacity,
 } from "react-native";
 import defaultStyles from "../../constants/Colors";
+import useWarmUpBrowser from "../hook/useWarmUpBrowser";
 
-// https://github.com/clerkinc/clerk-expo-starter/blob/main/components/OAuth.tsx
-// import { useWarmUpBrowser } from '@/hooks/useWarmUpBrowser';
-// import { defaultStyles } from '@/constants/Styles';
-
-// enum Strategy {
-//   Google = 'oauth_google',
-//   Apple = 'oauth_apple',
-//   Facebook = 'oauth_facebook',
-// }
+enum Strategy {
+  Google = "oauth_google",
+  Apple = "oauth_apple",
+  Facebook = "oauth_facebook",
+}
 const Page = () => {
-  // useWarmUpBrowser();
+  useWarmUpBrowser();
 
-  // const router = useRouter();
-  // const { startOAuthFlow: googleAuth } = useOAuth({ strategy: 'oauth_google' });
-  // const { startOAuthFlow: appleAuth } = useOAuth({ strategy: 'oauth_apple' });
-  // const { startOAuthFlow: facebookAuth } = useOAuth({ strategy: 'oauth_facebook' });
+  const router = useRouter();
+  const { startOAuthFlow: googleAuth } = useOAuth({ strategy: "oauth_google" });
+  const { startOAuthFlow: appleAuth } = useOAuth({ strategy: "oauth_apple" });
+  const { startOAuthFlow: facebookAuth } = useOAuth({
+    strategy: "oauth_facebook",
+  });
 
-  // const onSelectAuth = async (strategy: Strategy) => {
-  //   const selectedAuth = {
-  //     [Strategy.Google]: googleAuth,
-  //     [Strategy.Apple]: appleAuth,
-  //     [Strategy.Facebook]: facebookAuth,
-  //   }[strategy];
+  const onSelectAuth = async (strategy: Strategy) => {
+    const selectedAuth = {
+      [Strategy.Google]: googleAuth,
+      [Strategy.Apple]: appleAuth,
+      [Strategy.Facebook]: facebookAuth,
+    }[strategy];
 
-  //   try {
-  //     const { createdSessionId, setActive } = await selectedAuth();
+    try {
+      const { createdSessionId, setActive } = await selectedAuth();
 
-  //     if (createdSessionId) {
-  //       setActive!({ session: createdSessionId });
-  //       router.back();
-  //     }
-  //   } catch (err) {
-  //     console.error('OAuth error', err);
-  //   }
-  // };
+      if (createdSessionId) {
+        setActive!({ session: createdSessionId });
+
+        router.back();
+      }
+    } catch (err) {
+      console.error("OAuth error", err);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -89,7 +89,7 @@ const Page = () => {
 
         <TouchableOpacity
           style={styles.btnOutline}
-          // onPress={() => onSelectAuth(Strategy.Apple)}
+          onPress={() => onSelectAuth(Strategy.Apple)}
         >
           <Ionicons
             name="md-logo-apple"
@@ -101,7 +101,7 @@ const Page = () => {
 
         <TouchableOpacity
           style={styles.btnOutline}
-          // onPress={() => onSelectAuth(Strategy.Google)}
+          onPress={() => onSelectAuth(Strategy.Google)}
         >
           <Ionicons
             name="md-logo-google"
@@ -113,7 +113,7 @@ const Page = () => {
 
         <TouchableOpacity
           style={styles.btnOutline}
-          // onPress={() => onSelectAuth(Strategy.Facebook)}
+          onPress={() => onSelectAuth(Strategy.Facebook)}
         >
           <Ionicons
             name="md-logo-facebook"
