@@ -63,12 +63,15 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const { isLoaded, isSignedIn } = useAuth();
+
   const router = useRouter();
 
   // Automatically open login if user is not authenticated
   useEffect(() => {
+    console.log("isLoaded", isLoaded);
+    console.log("isSignedIn", isSignedIn);
     if (isLoaded && !isSignedIn) {
-      console.warn("Redirecting to login");
+      console.log("Redirecting to login");
       router.push("/(modals)/login");
     }
   }, [isLoaded, isSignedIn]);

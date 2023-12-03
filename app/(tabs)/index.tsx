@@ -10,7 +10,13 @@ const Page = () => {
     <View>
       <Stack.Screen
         options={{
-          header: () => <ExploreHeader />,
+          header: () => (
+            <ExploreHeader
+            //  onCategoryChanged={function (category: string): void {
+            //   throw new Error("Function not implemented.");
+            // } }
+            />
+          ),
         }}
       />
       <Listings />
