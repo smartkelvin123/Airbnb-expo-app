@@ -2,7 +2,7 @@ import Colors from "@/constants/Colors";
 import { useOAuth } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { AntDesign } from "@expo/vector-icons";
+// import { AntDesign } from "@expo/vector-icons";
 import {
   View,
   StyleSheet,
@@ -10,7 +10,7 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import {defaultStyles} from "../../constants/styles";
+import { defaultStyles } from "../../constants/styles";
 import useWarmUpBrowser from "../hook/useWarmUpBrowser";
 
 enum Strategy {
@@ -80,7 +80,11 @@ const Page = () => {
 
       <View style={{ gap: 20 }}>
         <TouchableOpacity style={styles.btnOutline}>
-          <AntDesign name="phone" size={24} style={defaultStyles.btnIcon} />
+          <Ionicons
+            name="md-phone-portrait-outline"
+            size={24}
+            style={defaultStyles.btnIcon}
+          />
           <Text style={styles.btnOutlineText}>Continue with Phone</Text>
         </TouchableOpacity>
 
