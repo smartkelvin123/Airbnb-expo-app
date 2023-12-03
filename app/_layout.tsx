@@ -68,14 +68,15 @@ function RootLayoutNav() {
   // Automatically open login if user is not authenticated
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
-      router.push("/(model)/login");
+      console.warn("Redirecting to login");
+      router.push("/(modals)/login");
     }
-  }, [isLoaded]);
+  }, [isLoaded, isSignedIn]);
 
   return (
     <Stack>
       <Stack.Screen
-        name="(model)/login"
+        name="(modals)/login"
         options={{
           presentation: "modal",
           title: "Log in or sign up",
@@ -92,12 +93,12 @@ function RootLayoutNav() {
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="listing/[id]" options={{ headerTitle: "" }} />
       <Stack.Screen
-        name="(model)/booking"
+        name="(modals)/booking"
         options={{
           presentation: "transparentModal",
           animation: "fade",
           headerTransparent: true,
-
+          // headerTitle: (props) => <ModalHeaderText />,
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => router.back()}
