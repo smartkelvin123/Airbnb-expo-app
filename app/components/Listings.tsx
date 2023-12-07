@@ -8,9 +8,12 @@ import {
 import { defaultStyles } from "../../constants/styles";
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
-// import Animated, { FadeInRight, FadeOutLeft } from 'react-native-reanimated';
+import Animated, { FadeInRight, FadeOutLeft } from "react-native-reanimated";
 import { useEffect, useRef, useState } from "react";
-// import { BottomSheetFlatList, BottomSheetFlatListMethods } from '@gorhom/bottom-sheet';
+import {
+  BottomSheetFlatList,
+  BottomSheetFlatListMethods,
+} from "@gorhom/bottom-sheet";
 
 interface Props {
   listings: any[];
