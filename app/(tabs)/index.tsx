@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import React, { useMemo, useState } from "react";
-// import ListingsBottomSheet from '@/components/ListingsBottomSheet';
+import ListingsBottomSheet from "../components/ListingsBottomSheet";
 import listingsData from "@/assets/data/airbnb-listings.json";
 import ListingsMap from "../components/ListingMap";
 import listingsDataGeo from "@/assets/data/airbnb-listings.geo.json";
@@ -24,7 +24,7 @@ const Page = () => {
         }}
       />
       <ListingsMap listings={listingsDataGeo} />
-      {/* <ListingsBottomSheet listings={items} category={category} /> */}
+      <ListingsBottomSheet listings={items} category={category} />
     </View>
   );
 };
