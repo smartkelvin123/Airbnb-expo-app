@@ -2,7 +2,7 @@ import { View } from "react-native";
 import React, { useMemo, useState } from "react";
 // import ListingsBottomSheet from '@/components/ListingsBottomSheet';
 import listingsData from "@/assets/data/airbnb-listings.json";
-// import ListingsMap from '../components/ListingMap';
+import ListingsMap from "../components/ListingMap";
 import listingsDataGeo from "@/assets/data/airbnb-listings.geo.json";
 import { Stack } from "expo-router";
 import ExploreHeader from "../components/ExploreHeader";
@@ -23,7 +23,7 @@ const Page = () => {
           header: () => <ExploreHeader onCategoryChanged={onDataChanged} />,
         }}
       />
-      {/* <ListingsMap listings={getoItems} /> */}
+      <ListingsMap listings={listingsDataGeo} />
       {/* <ListingsBottomSheet listings={items} category={category} /> */}
     </View>
   );
